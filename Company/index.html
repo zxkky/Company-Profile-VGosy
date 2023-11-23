@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-Tg526IEKjh3Vm9k8rqUOf4NX1f5U9clil7swuKFLjM70fMsRRPvKzw5AD3vDr7xj" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <style>
+    .jus {
+      text-align: justify;
+    }
+    .cus {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; 
+  }
+  .cus {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Additional styling for navbar */
+    .navbar-brand img {
+      margin-right: 5px;
+    }
+
+    .offcanvas-header {
+      padding-bottom: 0;
+    }
+
+    /* Styling for sections */
+    section {
+      padding: 60px 0;
+    }
+
+    /* Styling for contact cards */
+    .contact-card {
+      border: none;
+    }
+
+    .contact-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-card ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Styling for social media links */
+    .social-media-icons i {
+      margin-right: 10px;
+      color: #fff;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .social-media-icons i:hover {
+      color: #ffc107;
+    }
+
+    /* Footer styling */
+    footer {
+      padding: 20px 0;
+    }
+  
+  </style>
+</head> 
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+      navLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          navLinks.forEach(function (link) {
+            link.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    });
+</script>
+
+
+  <nav  class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+
+        <img src="image/Screenshot_2023-11-17_201931-removebg-preview.png" alt="" width="45" height="45" class="d-inline-block align-text-center">
+
+        VGosy
+
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+        <div class="offcanvas-header bg-dark">
+
+          <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">MENU</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        </div>
+
+        <div class="offcanvas-body bg-primary">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#Hom">BERANDA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Ten">TENTANG KAMI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Jasa">JASA DAN BARANG</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Lok">LOKASI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Cont">KONTAK</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="komentar.php">KOMENTAR</a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="admin-log.php">ADMIN LOGIN</a> -->
+            </li>
+          </ul>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
+
+    <div class="carousel-indicators">
+
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+
+    </div>
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+
+        <img src="image/tambang1.avif" class="d-block w-100" alt="...">
+
+        <div class="carousel-caption d-none d-md-block">
+
+          <!-- <h5>First slide label</h5>
+
+          <p>Some representative placeholder content for the first slide.</p> -->
+
+        </div>
+
+      </div>
+
+      <div class="carousel-item">
+
+        <img src="image/tambang2.avif" class="d-block w-100" alt="...">
+
+        <div class="carousel-caption d-none d-md-block">
+
+          <!-- <h5>Second slide label</h5>
+
+          <p>Some representative placeholder content for the second slide.</p> -->
+
+        </div>
+
+      </div>
+
+      <div class="carousel-item">
+
+        <img src="image/tambang3.avif" class="d-block w-100" alt="...">
+
+        <div class="carousel-caption d-none d-md-block">
+
+          <!-- <h5>Third slide label</h5>
+
+          <p>Some representative placeholder content for the third slide.</p> -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+      <span class="visually-hidden">Previous</span>
+
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+      <span class="visually-hidden">Next</span>
+
+    </button>
+
+  </div>
+
+  <div id="Hom" class=" kotak m-50">
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#227AFD" fill-opacity="1"
+        d="M0,256L30,261.3C60,267,120,277,180,277.3C240,277,300,267,360,240C420,213,480,171,540,144C600,117,660,107,720,96C780,85,840,75,900,106.7C960,139,1020,213,1080,240C1140,267,1200,245,1260,208C1320,171,1380,117,1410,90.7L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+      </path>
+    </svg> -->
+
+
+
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+
+    <path fill="#0099ff" fill-opacity="1"
+
+      d="M0,256L12.6,256C25.3,256,51,256,76,213.3C101.1,171,126,85,152,90.7C176.8,96,202,192,227,245.3C252.6,299,278,309,303,309.3C328.4,309,354,299,379,256C404.2,213,429,139,455,106.7C480,75,505,85,531,112C555.8,139,581,181,606,208C631.6,235,657,245,682,229.3C707.4,213,733,171,758,170.7C783.2,171,808,213,834,208C858.9,203,884,149,909,122.7C934.7,96,960,96,985,128C1010.5,160,1036,224,1061,224C1086.3,224,1112,160,1137,160C1162.1,160,1187,224,1213,229.3C1237.9,235,1263,181,1288,165.3C1313.7,149,1339,171,1364,197.3C1389.5,224,1415,256,1427,272L1440,288L1440,0L1427.4,0C1414.7,0,1389,0,1364,0C1338.9,0,1314,0,1288,0C1263.2,0,1238,0,1213,0C1187.4,0,1162,0,1137,0C1111.6,0,1086,0,1061,0C1035.8,0,1011,0,985,0C960,0,935,0,909,0C884.2,0,859,0,834,0C808.4,0,783,0,758,0C732.6,0,707,0,682,0C656.8,0,632,0,606,0C581.1,0,556,0,531,0C505.3,0,480,0,455,0C429.5,0,404,0,379,0C353.7,0,328,0,303,0C277.9,0,253,0,227,0C202.1,0,177,0,152,0C126.3,0,101,0,76,0C50.5,0,25,0,13,0L0,0Z">
+
+    </path>
+
+  </svg> -->
+
+
+
+  <!-- <div class="pt-4 m-5" data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0"> -->
+
+  <div class="container mt-3" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <div class=" row">
+
+    <div class="col-md-6">
+
+      <h4 class="fw-bold">BERANDA</h4>
+
+      <p class="Home jus fs-5">Perusahaan Tambang: Mengeksplorasi Kekayaan Bumi
+        Perusahaan tambang adalah entitas bisnis yang berfokus pada kegiatan ekstraksi dan pengolahan bahan tambang dari
+        dalam bumi.
+        Tujuan utama mereka adalah untuk mengidentifikasi, menggali, dan memanfaatkan sumber daya alam seperti logam,
+        mineral, batu bara, dan minyak bumi.
+        Aktivitas tambang memiliki peran penting dalam ekonomi global karena menyediakan bahan mentah yang esensial
+        untuk berbagai industri, termasuk konstruksi, manufaktur, energi, dan teknologi.</p>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <img src="image/orang tambang.png" alt="Company Image" class="img-fluid">
+
+    </div>
+
+  </div>
+
+  </div>
+
+  </div>
+
+  <!-- <div id="Ten" class="persegi-panjang"></div> -->
+
+
+
+
+
+
+  <div id="Ten" class="container mt-5" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="image/orang tambang.png" alt="Company Image" class="img-fluid">
+        </div>
+        <div class="col-md-6" >
+            <h5 class="fw-bold">TENTANG KAMI</h5>
+            <p class="Home jus fs-5">Perusahaan Tambang: Mengeksplorasi Kekayaan Bumi
+                Perusahaan tambang adalah entitas bisnis yang berfokus pada kegiatan ekstraksi dan pengolahan bahan tambang dari dalam bumi.
+                Tujuan utama mereka adalah untuk mengidentifikasi, menggali, dan memanfaatkan sumber daya alam seperti logam, mineral, batu bara, dan minyak bumi.
+                Aktivitas tambang memiliki peran penting dalam ekonomi global karena menyediakan bahan mentah yang esensial untuk berbagai industri, termasuk konstruksi, manufaktur, energi, dan teknologi.
+            </p>
+        </div>
+    </div>
+</div>
+
+  <!-- <div id="Ten" class="container mt-5"style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+
+    <div class="row">
+
+      <div class="col-md-">
+        <div class="col-md-6">
+
+          <img src="image/orang tambang.png" alt="Company Image" class="img-fluid">
+    
+        </div>
+    
+
+        <h5 class="fw-bold">TENTANG KAMI</h5>
+        
+
+        <p class="Home jus">Perusahaan Tambang: Mengeksplorasi Kekayaan Bumi
+          Perusahaan tambang adalah entitas bisnis yang berfokus pada kegiatan ekstraksi dan pengolahan bahan tambang
+          dari dalam bumi.
+
+          Tujuan utama mereka adalah untuk mengidentifikasi, menggali, dan memanfaatkan sumber daya alam seperti logam,
+          mineral, batu bara, dan minyak bumi.
+
+          Aktivitas tambang memiliki peran penting dalam ekonomi global karena menyediakan bahan mentah yang esensial
+          untuk berbagai industri, termasuk konstruksi, manufaktur, energi, dan teknologi.</p>
+
+      </div>
+
+    </div>
+
+  </div> -->
+
+
+
+  <!-- <div id="Jasa" class="persegi-panjang"></div> -->
+
+
+<section id="Jasa" class="bg-light py-5" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+    <div class="container">
+
+      <h4 class="text-center fw-bold">JASA DAN BARANG</h4>
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+          <div class="card">
+
+            <img src="image/orang tambang.png" alt=" Gambar Service 1" class="card-img-top cus">
+
+            <div class="card-body">
+
+              <h5 class="card-title">Peralatan Tambang</h5>
+
+              <p class="card-text">alat berat, mesin pengeboran, dan peralatan keselamatan tambang.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="card">
+
+            <img src="image/bubuk-mesiu-ir6071h7t2(1).png" alt=" Gambar Service 2" class="card-img-top cus">
+
+            <div class="card-body">
+
+              <h5 class="card-title">perakitan bom</h5>
+
+              <p class="card-text">Merakit dan menjual bahan bahan pembuatan bom untuk tambang.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="card">
+
+        <img src="image/biji besi.png" alt=" Gambar Service 1" class="card-img-top cus">
+
+            <div class="card-body">
+              <h5 class="card-title">Logam</h5>
+
+              <p class="card-text"> logam berharga seperti emas, perak, tembaga, aluminium, dan besi.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section> 
+  <!-- <section id="Jasa" class="bg-light py-5"
+    style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="container">
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image/biji besi.png" alt="Gambar Service 1" class="card-img-top custom-img">
+      <div class="card-body">
+        <h5 class="card-title">Logam</h5>
+        <p class="card-text">logam berharga seperti emas, perak, tembaga, aluminium, dan besi.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image/bubuk-mesiu-ir6071h7t2(1).png" alt="Gambar Service 2" class="card-img-top custom-img">
+      <div class="card-body">
+        <h5 class="card-title">perakitan bom</h5>
+        <p class="card-text">Merakit dan menjual bahan bahan pembuatan bom untuk tambang.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image/orang tambang.png" alt="Gambar Service 3" class="card-img-top custom-img">
+      <div class="card-body">
+        <h5 class="card-title">Peralatan Tambang</h5>
+        <p class="card-text">alat berat, mesin pengeboran, dan peralatan keselamatan tambang.</p>
+      </div>
+    </div>
+  </div>
+  </
+  </section> -->
+
+
+
+  <div id="Lok" class="container mt-5" >
+
+    <div class="row" >
+
+      <div class="col-md-6" style="height: 100vh; width: 100%; display: flex; flex-direction: column;  justify-content: center;">
+
+        <!-- <div  class="persegi-panjang"></div> -->
+
+        <h4 class="fw-bold">LOKASI</h4>
+
+        <p>Kalimantan </p>
+
+        <div class="container" style="width: 100%; height: 20rem;">
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6328528.34861307!2d108.7496236179165!3d1.4342776094717757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3200a51b0ce8057b%3A0xf81f7b0a97d0b88a!2sKalimantan!5e1!3m2!1sid!2sid!4v1698974491563!5m2!1sid!2sid" style="border:0; height: 20rem; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <section id="Cont" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;"> <!-- Add the bg-primary class for a blue background, you can change it to any Bootstrap background color class -->
+      <div class="container mt-5">
+
+    <h4 class="text-center fw-bold">KONTAK</h4>
+
+    <div class="container mt-5">
+      <div class="card">
+          <div class="card-body">
+              <div class="row">
+                  <!-- Left Side (Contact Info) -->
+                  <div class="col-md-6">
+                      
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item"><strong>Perusahaan:</strong> VGosy</li>
+                          <li class="list-group-item"><strong>Email:</strong> VGosy@gmail.com</li>
+                          <li class="list-group-item"><strong>No :</strong> +1 (123) 456-7890</li>
+                          <li class="list-group-item"><strong>Alamat:</strong> Kalimantan</li>
+                      </ul>
+                  </div>
+                  <!-- Right Side (Social Media Links) -->
+                  <div class="col-md-6">
+                      <h5 class="card-title text-center mb-4">Media Sosial</h5>
+                      <div class="d-flex justify-content-around">
+                          <a href="https://www.facebook.com/your_facebook_account" target="_blank">
+                              <i class="fab fa-facebook fa-3x"></i>
+                          </a>
+                          <a href="https://www.twitter.com/your_twitter_account" target="_blank">
+                              <i class="fab fa-twitter fa-3x"></i>
+                          </a>
+                          <a href="https://www.instagram.com/your_instagram_account" target="_blank">
+                              <i class="fab fa-instagram fa-3x"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+</section>
+
+  
+          <!-- <div class="col-md-6">
+  
+            <p>Email: Vgosy@gmail.com</p>
+  
+            <p>Phone: +62 9802 9121 8888 </p>
+  
+          </div> -->
+  
+          <!-- <div class="col-md-6">
+  
+            <form action="email.php" method="POST">
+  
+              <div class="form-group">
+  
+                <input required type="text" class="form-control" placeholder="Your Name" name="nama">
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <input required type="email" class="form-control" placeholder="Your email" name="email">
+  
+              </div>
+  
+              <div class="form-group">
+  
+                <textarea required name="pesan" class="form-control" rows="5" placeholder="Your Message"></textarea>
+  
+              </div>
+  
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+  
+            </form>
+  
+          </div>
+  
+        </div>
+  
+      </div> -->
+
+
+
+  
+
+
+
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+
+    <path fill="#0099ff" fill-opacity="1"
+
+      d="M0,160L17.1,160C34.3,160,69,160,103,165.3C137.1,171,171,181,206,165.3C240,149,274,107,309,90.7C342.9,75,377,85,411,80C445.7,75,480,53,514,48C548.6,43,583,53,617,69.3C651.4,85,686,107,720,112C754.3,117,789,107,823,90.7C857.1,75,891,53,926,42.7C960,32,994,32,1029,48C1062.9,64,1097,96,1131,112C1165.7,128,1200,128,1234,144C1268.6,160,1303,192,1337,192C1371.4,192,1406,160,1423,144L1440,128L1440,320L1422.9,320C1405.7,320,1371,320,1337,320C1302.9,320,1269,320,1234,320C1200,320,1166,320,1131,320C1097.1,320,1063,320,1029,320C994.3,320,960,320,926,320C891.4,320,857,320,823,320C788.6,320,754,320,720,320C685.7,320,651,320,617,320C582.9,320,549,320,514,320C480,320,446,320,411,320C377.1,320,343,320,309,320C274.3,320,240,320,206,320C171.4,320,137,320,103,320C68.6,320,34,320,17,320L0,320Z">
+
+    </path>
+
+  </svg> -->
+  
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#0D6EFD" fill-opacity="1"
+      d="M0,256L30,261.3C60,267,120,277,180,277.3C240,277,300,267,360,240C420,213,480,171,540,144C600,117,660,107,720,96C780,85,840,75,900,106.7C960,139,1020,213,1080,240C1140,267,1200,245,1260,208C1320,171,1380,117,1410,90.7L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+    </path>
+  </svg>
+
+  <footer class="bg-primary text-white text-center py-3">
+
+    <p>&copy; 2023 VGosy, Company profile</p>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+
+    crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>
